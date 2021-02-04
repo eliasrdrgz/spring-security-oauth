@@ -1,7 +1,8 @@
 ## Spring Security OAuth
 
-If you're already a student of Learn Spring Security, you can get started diving deeper into OAuth2 with Module 10, and then Modules 12, 13, and the upcoming module 17. </br></br>
-If you're not yet a student, you can get access to the course here: http://bit.ly/github-lss
+I've just announced a new course, dedicated on exploring the new OAuth2 stack in Spring Security 5 - Learn Spring Security OAuth: 
+http://bit.ly/github-lsso
+
 </br></br></br>
 
 
@@ -14,21 +15,11 @@ mvn clean install
 
 
 ## Projects/Modules
-This project contains a number of modules, but here are the main ones you should focus on and run: 
-- `oauth-authorization-server` - the Authorization Server (port = 8081)
-- `oauth-resource-server-1` - the Resource Server (port = 8082)
-- `oauth-resource-server-2` - the secondary Resource Server (port = 8088)
-
-And, depending on what grant type you want to try out, you'll work with one of these UI/Clients:  
-- `angularjs/oauth-ui-implicit` (port = 8083)
-- `angularjs/oauth-ui-password` (port = 8084)
-
-Other Modules: 
-- `clients-angular/oauth-ui-implicit-angular` - another version of the Implicit Grant UI Module - using Angular 7
-- `clients-angular/oauth-ui-password-angular` - another version of the Password Grant UI Module - using Angular 7
-- `clients-angular/oauth-ui-authorization-code-angular` - Authorization Code Grant UI Module - using Angular 7
-
-Finally, you can ignore all other modules. 
+This project contains a number of modules, here is a quick description of what each module contains: 
+- `oauth-rest` - Authorization Server (Keycloak), Resource Server and Angular App based on the new Spring Security 5 stack
+- `oauth-jwt` - Authorization Server (Keycloak), Resource Server and Angular App based on the new Spring Security 5 stack, focused on JWT support
+- `oauth-jws-jwk-legacy` - Authorization Server and Resource Server for JWS + JWK in a Spring Security OAuth2 Application
+- `oauth-legacy` - Authorization Server, Resource Server, Angular and AngularJS Apps for legacy Spring Security OAuth2
 
 
 
@@ -72,7 +63,7 @@ npm start
 ## Using the JS-only SPA OAuth Client
 The main purpose of these projects are to analyze how OAuth should be carried out on Javascript-only Single-Page-Applications, using the authorization_code flow with PKCE.
 
-The *SPA/clients-js-only-react* project includes a very simple Spring Boot Application serving a couple of separate Single-Page-Applications developed in React.
+The *clients-SPA-legacy/clients-js-only-react-legacy* project includes a very simple Spring Boot Application serving a couple of separate Single-Page-Applications developed in React.
 
 It includes two pages:
   * a 'Step-By-Step' guide, where we analyze explicitly each step that we need to carry out to obtain an access token and request a secured resource
@@ -87,24 +78,10 @@ After running the Spring Boot Application (a simple *mvn spring-boot:run* comman
 When prompted the login form, we might need to create a user for our Application first.
 
 ### The 'Real-Case' OAuth Client with PKCE page
-To use all the features contained in the *http://localhost:8080/pkce-realcase/index.html* page, we'll need to first start the resource server (SPA/oauth-resource-server-auth0).
+To use all the features contained in the *http://localhost:8080/pkce-realcase/index.html* page, we'll need to first start the resource server (clients-SPA-legacy/oauth-resource-server-auth0-legacy).
 
 In this page, we can:
   * List the resources in our resource server (public, no permissions needed)
   * Add resources (we're requested the permissions to do that when logging in. For simplicity sake, we just request the existing 'profile' scope)
   * Remove resources (we actually can't accomplish this task, because the resource server requires the application to have permissions that were not included in the existing scopes)
 
-## Relevant Articles: 
-- [Spring REST API + OAuth2 + Angular](https://www.baeldung.com/rest-api-spring-oauth2-angular)
-- [Using JWT with Spring Security OAuth](http://www.baeldung.com/spring-security-oauth-jwt)
-- [OAuth2 for a Spring REST API – Handle the Refresh Token in AngularJS](http://www.baeldung.com/spring-security-oauth2-refresh-token-angular-js)
-- [Spring Security OAuth2 – Simple Token Revocation](http://www.baeldung.com/spring-security-oauth-revoke-tokens)
-- [OAuth2.0 and Dynamic Client Registration](http://www.baeldung.com/spring-security-oauth-dynamic-client-registration)
-- [Testing an OAuth Secured API with Spring MVC](http://www.baeldung.com/oauth-api-testing-with-spring-mvc)
-- [Logout in an OAuth Secured Application](http://www.baeldung.com/logout-spring-security-oauth)
-- [OAuth2 Remember Me with Refresh Token](http://www.baeldung.com/spring-security-oauth2-remember-me)
-- [Spring REST API + OAuth2 + Angular](http://www.baeldung.com/angular-4-upgrade-for-spring-security-oauth/)
-- [New in Spring Security OAuth2 – Verify Claims](http://www.baeldung.com/spring-security-oauth-2-verify-claims)
-- [Front-End App with Spring Security OAuth – Authorization Code Flow](http://www.baeldung.com/spring-security-oauth-authorization-code-flow)
-- [Setting Up Swagger 2 with a Spring REST API](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
-- [Handle Security in Zuul, with OAuth2 and JWT](https://www.baeldung.com/spring-security-zuul-oauth-jwt)
